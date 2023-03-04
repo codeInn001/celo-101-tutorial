@@ -1,6 +1,6 @@
 # How To Build  NFTs Using Hardhat  On Celo Blockchain
 
-![banner image](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/celo-banner.png?raw=true align="center")
+<img width="1200" alt="remix-capture" src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/celo-banner.png">
 
 Non-fungible assets are non-interchangeable assets. Non-fungible assets are also unique and different. They can not be replaced by another asset - even an asset of the same value. Examples of non-fungible assets include digital collectibles, arts, houses, domain names, etc.
 
@@ -116,9 +116,7 @@ code .
 ```
 
 The NFTs-hardhat directory will have the package.json file we initialized earlier. Your VS Code interface will look like the image beloow.
-
-![package json](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/package-json-view.png?raw=true align="right")
-
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/package-json-view.png?raw=true">
 Next, we need to install hardhaat locally. Hardhat enables us to run, compile, debug, edit, test, and deploy our smart contract locally. Use the command below to install hardhat on your machine.
 
 ```bash
@@ -126,8 +124,7 @@ npm install --save-dev hardhat
 ```
 
 After the complete installation of hardhat, your VSCode interface will have a folder structure similar to the image below.
-
-[![hardhat](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/hardhat.png?raw=true align="right")](https://github.com/codeInn001/hardhat/blob/main/images/celo-banner.png?raw=true )
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/hardhat.png?raw=true">
 
 To use our local installation of hardhat, run the command below. The command will initialize a sample project. We will build upon the sample project in this tutorial. The sample project will give us a good understanding of what is available in hardhat.
 
@@ -227,9 +224,9 @@ npx hardhat run scripts/deploy.js --network alfajores
 
 The command above deploys Lock.sol, located inside the contracts folder. You will receive a response similar to the below image in your terminal.
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deploy.png?raw=true align="center")
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deploy.png?raw=true">
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deploy.png?raw=true align="center")
+
 
 ## Write and compile smart contract
 
@@ -459,8 +456,7 @@ The content of each json should look like the format below. You can modify it as
 {
     "name": "nft0",
     "description": "NFT collection for educational purposes.",
-    "image": "https://ipfs.io/ipfs/QmSaMQS7o1Qj68si6vUz4nHyQu8PdPwtcwNgASY79kqXxb/comrade1.jpg/geo_1.png
-",
+    "image": "https://ipfs.io/ipfs/QmSaMQS7o1Qj68si6vUz4nHyQu8PdPwtcwNgASY79kqXxb/comrade1.jpg/geo_1.png",
     "attributes": [
         { "trait_type": "background", "value": "cyan" },
         { "trait_type": "color", "value": "red" },
@@ -490,7 +486,7 @@ One of the functionalities of hardhat is that we can compile our code right in o
 * You will see a response similar to the image below.
     
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/compile.png?raw=true align="center")
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/compile.png?raw=true">
 
 ## Test NFT Smart Contract
 
@@ -602,7 +598,7 @@ npx hardhat test
 
 You will receive a response like the image below:
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/test.png?raw=true align="center")
+<imgf src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/test.png?raw=true">
 
 ## Deploy NFT Smart Contract
 
@@ -713,7 +709,7 @@ npx hardhat run --network alfajores scripts/deploy.js
 
 You will receive a response similar to the image below. Save the contract address in the response, because we will need it in the next section.
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deployed-nft.png?raw=true align="center")
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deployed-nft.png?raw=true">
 
 ## Minting NFT
 
@@ -859,7 +855,7 @@ node scripts/mint-nft.js
 
 After the script finishes its execution. You will get a response similar to the image below.
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/mint-cmd.png?raw=true align="center")
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/mint-cmd.png?raw=true">
 
 ## Import Smart Contract.
 
@@ -878,7 +874,7 @@ Let's Import our contract into our wallet to see the nfts we received. Follow th
 
 Now, you should see your token in your wallet with at least two NFTS similar to the image below.
 
-![](https://github.com/codeInn001/celo-101-tutorial/blob/main/images/mint.png?raw=true align="center")
+<img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/mint.png?raw=true">
 
 ## Conclusion
 
