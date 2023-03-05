@@ -4,7 +4,7 @@
 
 Non-fungible assets are non-interchangeable assets. Non-fungible assets are also unique and different. They can not be replaced by another asset - even an asset of the same value. Examples of non-fungible assets include digital collectibles, arts, houses, domain names, etc.
 
-We can represent non-fungible assets on the blockchain network as non-fungible tokens (NFTs). The authenticity and ownership of NFTs is easily verified on the blockchain.
+We can represent non-fungible assets on the blockchain network as non-fungible tokens (NFTs). The authenticity and ownership of NFTs are easily verified on the blockchain.
 
 In this tutorial, you will learn how to build NFTs using hardhat on the Celo blockchain network. This tutorial will enable us to:
 
