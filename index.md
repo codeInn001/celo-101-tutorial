@@ -1,22 +1,23 @@
 # How To Build  NFTs Using Hardhat  On Celo Blockchain
+_Estimated reading time: **20 Minutes**_
+## Introduction
 
 <img width="1200" alt="remix-capture" src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/celo-banner.png">
 
 Non-fungible assets are non-interchangeable assets. Non-fungible assets are also unique and different. They can not be replaced by another asset - even an asset of the same value. Examples of non-fungible assets include digital collectibles, arts, houses, domain names, etc.
 
-We can represent non-fungible assets on the blockchain network as non-fungible tokens (NFTs). The authenticity and ownership of NFTs are easily verified on the blockchain.
+We can represent non-fungible assets on the blockchain network as non-fungible tokens (NFTs). NFTs, certify the authenticity and ownership of non-fungible assets.
 
 In this tutorial, you will learn how to build NFTs using hardhat on the Celo blockchain network. This tutorial will enable us to:
 
-* Build NFTs projects in our local development environment without [Remix IDE](https://remix.ethereum.org/) using hardhat.
-    
-* We will also deploy it on the Celo blockchain using hardhat.
+* Build NFTs projects in our local development environment without [Remix IDE](https://remix.ethereum.org/) using Hardhat.  
+* We will also deploy it on the Celo blockchain using Hardhat.
     
 
 ## Table of Contents
   * [Table of Contents](#table-of-contents)
   * [Prerequisites](#prerequisites)
-  * [Tech Stack.](#tech-stack)
+  * [Tech Stack](#tech-stack)
   * [NFTs Smart Contract](#nfts-smart-contract)
     + [Project Setup](#project-setup)
   * [Celo Configuration](#celo-configuration)
@@ -30,7 +31,7 @@ In this tutorial, you will learn how to build NFTs using hardhat on the Celo blo
   * [Test NFT Smart Contract](#test-nft-smart-contract)
   * [Deploy NFT Smart Contract](#deploy-nft-smart-contract)
   * [Minting NFT](#minting-nft)
-  * [Import Smart Contract.](#import-smart-contract)
+  * [Import Smart Contract](#import-smart-contract)
   * [Conclusion](#conclusion)
 
 
@@ -40,24 +41,17 @@ In this tutorial, you will learn how to build NFTs using hardhat on the Celo blo
 For a proper understanding of this tutorial, you need a basic knowledge of the following:
 
 * Blockchain technology.
-    
-* Basic understanding of blockchain technologies.
-    
-* Nodejs. This tutorial requires version 12 or higher.
-    
-* An IDE. We will use [VS Code](https://code.visualstudio.com/download).
-    
+* [Nodejs](https://nodejs.org). This tutorial requires version 12 or higher. 
+* An IDE. We will use [VS Code](https://code.visualstudio.com/download).  
 * [NFT contracts](https://hackmd.io/1_56InhcSO-oqrF8WXfhaQ).
     
 
-## Tech Stack.
+## Tech Stack
 
 In this tutorial, we will use the following tools and resources:
 
-* Node JS - A JavaScript runtime environment.
-    
-* Hardhat - A Ethereum development environment.
-    
+* [Node JS](https://nodejs.org) - A JavaScript runtime environment.  
+* [Hardhat](https://hardhat.org) - A Ethereum development environment.   
 * [OpenZeppelin](https://www.openzeppelin.com/) Contracts - A library of secured smart contracts.
     
 
@@ -65,25 +59,25 @@ In this tutorial, we will use the following tools and resources:
 
 The Ethereum community created NFT token standard that specifies how a token behaves. This standard makes it easy for developers to build NFTs smart contracts that can interact with one another.
 
-Celo is an EVM-compatible blockchain, Celo can use Ethereum token standard and its tools to build NFTs smart contracts.\`
+Celo is an EVM-compatible blockchain, Celo can use Ethereum token standard and its tools to build NFTs smart contracts.
 
 Learn more about these [token standards](https://ethereum.org/en/developers/docs/standards/tokens/#:~:text=Here%20are%20some%20of%20the,for%20artwork%20or%20a%20song.).
 
 ### Project Setup
 
-To check your node version, open your terminal, and run the command below.
+To check your Node version, open your terminal, and run the command below.
 
 ```bash
 node -v
 ```
 
-If your node version is less than version 12, upgrade using the command below.
+If your Node version is less than version 12, upgrade using the command below.
 
 ```bash
 n latest
 ```
 
-You can now verify that your node version upgrade is complete by running the command below.
+You can now verify that your Node version upgrade is complete by running the command below.
 
 ```bash
 node -v
@@ -107,7 +101,7 @@ Initialize an NPM package by running the command below.
 npm init
 ```
 
-The command above will generate a package.json file. A package.json file describes the dependencies in our project. Each time you add a new dependency, **package.json** file gets an update.
+The command above will generate a `package.json` file. A `package.json` file describes the dependencies in our project. Each time you add a new dependency, **package.json** file gets an update.
 
 With your terminal still in the **NFTs-hardhat** directory, run the command below to open the **NFTs-hardhat** directory in VSCode :
 
@@ -115,9 +109,9 @@ With your terminal still in the **NFTs-hardhat** directory, run the command belo
 code .
 ```
 
-The NFTs-hardhat directory will have the package.json file we initialized earlier. Your VS Code interface will look like the image beloow.
+The NFTs-hardhat directory will have the `package.json` file we initialized earlier. Your VS Code interface will look like the image below.
 <img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/package-json-view.png?raw=true">
-Next, we need to install hardhaat locally. Hardhat enables us to run, compile, debug, edit, test, and deploy our smart contract locally. Use the command below to install hardhat on your machine.
+Next, we need to install Hardhat locally. Hardhat enables us to run, compile, debug, edit, test, and deploy our smart contract locally. Use the command below to install Hardhat on your machine.
 
 ```bash
 npm install --save-dev hardhat
@@ -132,7 +126,7 @@ To use our local installation of hardhat, run the command below. The command wil
 npx hardhat
 ```
 
-The command will prompt some questions on how to set up your project. press enter key for each prompt.
+The command will prompt some questions on how to set up your project. Press enter key for each prompt.
 
 After completing the initialization of the sample project, You will see an instruction in your terminal that requires that you run the command below.
 
@@ -140,14 +134,11 @@ After completing the initialization of the sample project, You will see an instr
  npm install --save-dev "hardhat@^2.12.7" "@nomicfoundation/hardhat-toolbox@^2.0.0"
 ```
 
-The command above installs @nomicfoundation/hardhat-toolbox plugin that enables us to perform some actions such as:
+The command above installs `@nomicfoundation/hardhat-toolbox` plugin that enables us to perform some actions such as:
 
 * Deploy your smart contract.
-    
 * Interact with your smart contract using ether.js.
-    
 * Test your smart contract.
-    
 * Interact with hardhat network.
     
 
@@ -159,7 +150,7 @@ npx hardhat
 
 ## Celo Configuration
 
-We need to configure hardhat to enable it to deploy on Celo alfajoreees testnet. To do that open hardhat.config.js, located in the root folder. replace the content of hardhat.config.js with the code below.
+We need to configure hardhat to enable it to deploy on Celo Alfajores testnet. To do that open `hardhat.config.js`, located in the root folder. replace the content of `hardhat.config.js` with the code below.
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -181,26 +172,20 @@ module.exports = {
 };
 ```
 
-In the code above, we have a [module.exports](https://www.sitepoint.com/understanding-module-exports-exports-node-js/), Ut contains the following properties:
+In the code above, we have a [module.exports](https://www.sitepoint.com/understanding-module-exports-exports-node-js/), it contains the following properties:
 
-* solidity: This accepts the value of our smart contract solidity version.
-    
-* networks: This contains the network we are deploying to, in this case, it is the alfajores testnet.
-    
-* alfajores: This accept thr alfajores testnet URL and accounts.
-    
-* accounts: This accepts the details of the Celo alfajores testnet account that we need to deploy our smart contract. The account property accepts an object with two properties. namely :
-    
-    * mnemonic: This accepts a mnemonic variable from a .env file, which is required at the top of our code. This mnemonic is our wallet recovery secret phrase, it grants hardhat access to our account. This enables hardhat to interact with alfajores testnet. We will create a .env file shortly.
-        
-    * path: This is also called a [derivation path](https://medium.com/mycrypto/wtf-is-a-derivation-path-c3493ca2eb52). The path provided above is a Metemask path. If you are using CeloWalletExtension, change the path to this "m/44'/52752'/0'/0".
-        
-* chainId: Also called a chain identifier. Accepts Celo chain id.
+* `solidity`: This accepts the value of our smart contract Solidity version.
+* `networks`: This contains the network we are deploying to, in this case, it is the Alfajores testnet.
+* `alfajores`: This accept thr Alfajores testnet URL and accounts. 
+* `accounts`: This accepts the details of the Celo Alfajores testnet account that we need to deploy our smart contract. The account property accepts an object with two properties. namely :
+    * `mnemonic`: This accepts a mnemonic variable from a `.env` file, which is required at the top of our code. This mnemonic is our wallet recovery secret phrase, it grants Hardhat access to our account. This enables Hardhat to interact with Alfajores testnet. We will create a `.env` file shortly. 
+    * `path`: This is also called a [derivation path](https://medium.com/mycrypto/wtf-is-a-derivation-path-c3493ca2eb52). The path provided above is a Metemask path. If you are using CeloWalletExtension, change the path to this "m/44'/52752'/0'/0".
+* `chainId`: Also called a chain identifier. Accepts Celo chain id.
     
 
-## Create .env file
+## Create `.env` file
 
-Seed phrases are meant to be private. We will store our seed phrase in a .env file. The .env file prevents the upload ofour seed phrase.
+Seed phrases are meant to be private. We will store our seed phrase in a `.env` file. The `.env` file prevents the upload of our seed phrase.
 
 Run the command below to install dotenv dependency.
 
@@ -208,21 +193,29 @@ Run the command below to install dotenv dependency.
 npm install dotenv
 ```
 
-After the complete installation of dotenv. Navigate to the root directory, create a .env file. Open your Metamask wallet, and click on identicon, located at the top right corner. Select settings, then select security and privacy. Click on Reveal Secret Recovery Phrase. Copy the phrase, paste it in the newly created .env file. Your env file should look like the image below
+After the complete installation of dotenv. 
+- Navigate to the root directory
+- Create a `.env` file
+- Open your Metamask wallet, and click on identicon, located at the top right corner
+- Select settings, then select security and privacy
+- Click on Reveal Secret Recovery Phrase
+- Copy the phrase, paste it in the newly created .env file. 
+
+Your `.env` file should look like the image below:
 
 ```bash
 MNEMONIC="YOUR_SECRET_RECOVERY_PHRASE"
 ```
 
-Replace the value of the mnemonic variable with the phrase you copied from your Metamask wallet.
+Replace the value of the `MNEMONIC` variable with the phrase you copied from your Metamask wallet.
 
-Now, test if hardhat is working as intended by running the command below.
+Now, test if Hardhat is working as intended by running the command below.
 
 ```bash
 npx hardhat run scripts/deploy.js --network alfajores
 ```
 
-The command above deploys Lock.sol, located inside the contracts folder. You will receive a response similar to the below image in your terminal.
+The command above deploys `Lock.sol`, located inside the contracts folder. You will receive a response similar to the below image in your terminal.
 
 <img src="https://github.com/codeInn001/celo-101-tutorial/blob/main/images/deploy.png?raw=true">
 
@@ -234,14 +227,11 @@ Now that we are done with our project setup. We will now write and compile our s
 
 ### Write Smart Contract
 
-In this section, we will write our smart contract using the solidity programming language. follow the steps below to create a file for our smart contract.
+In this section, we will write our smart contract using the Solidity programming language. follow the steps below to create a file for our smart contract.
 
 1. Open the contracts folder at the root of your directory
-    
-2. Delete the Lock.sol file.
-    
-3. Create a new file under the contracts folder. Name the file MyNFT.sol
-    
+2. Delete the `Lock.sol` file
+3. Create a new file under the contracts folder. Name the file `MyNFT.sol`
 4. Copy the code below into the file.
     
 
@@ -344,9 +334,9 @@ constructor() ERC721("AfricaPrintNFT", "APNFT")
 
 The constructor ERC721 has two strings passed into it. The constructor sets the two strings on deployment. It sets:
 
-* AfricaPrintNFT as the name of our NFT.
+* **AfricaPrintNFT** as the name of our NFT.
     
-* APNFT as the symbol of our NFT.
+* **APNFT** as the symbol of our NFT.
     
 
 ```solidity
@@ -355,7 +345,7 @@ function _baseURI() internal pure override returns (string memory) {
     }
 ```
 
-The baseURI returns a link that points to a JSON file that contains a metadata of our multiple tokens. This metadata includes the description, image link, and names of our tokens. If we are to mint a single token, then a tokenURI is enough. more on how to set your baseURI later.
+The `_baseURI()` returns a link that points to a JSON file that contains a metadata of our multiple tokens. This metadata includes the description, image link, and names of our tokens. If we are to mint a single token, then a tokenURI is enough. More on how to set your baseURI later.
 
 ```solidity
 function safeMint(address to, string memory uri) public onlyOwner {
@@ -366,10 +356,8 @@ function safeMint(address to, string memory uri) public onlyOwner {
     }
 ```
 
-* The `safeMint` function allows the minting of tokens to the address passed to it and the URI passed to it.
-    
-* `string memory uri` accepts a string that points to the metadata of the to
-    
+* The `safeMint()` function allows the minting of tokens to the address passed to it and the URI passed to it.
+* `string memory uri` accepts a string that points to the metadata of the to  
 * `safeMint` function contains some other methods, which it inherited from ERC721 OpenZeppelin library.
     
 
@@ -405,7 +393,7 @@ function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256
 }
 ```
 
-The above functions are overrides required by solidity. The functions are inherited from ERC721 OpenZeppelin library. Learn more about these functions [here](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721).
+The above functions are overrides required by Solidity. The functions are inherited from ERC721 OpenZeppelin library. Learn more about these functions [here](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721).
 
 ## Configure Metadata IPFS
 
@@ -426,10 +414,8 @@ img
 
 We need to upload the images above in a decentralized way using pinata to host them on IPFS. To pin your images, follow the steps below:
 
-1. Open [pinata](https://app.pinata.cloud/) in a new tab.
-    
-2. Sign up. After sign up pinata will navigate to pinata pinmanger
-    
+1. Open [Pinata](https://app.pinata.cloud/) in a new tab.
+2. Sign up. After sign up pinata will navigate to **pinata pinmanger**
 3. Click on the plus icon with add file text. Click on upload folder, then upload the **img** folder.
     
 
@@ -450,7 +436,7 @@ metadata
 ├── 2
 ```
 
-The content of each json should look like the format below. You can modify it as you deem fit.
+The content of each JSON should look like the format below. You can modify it as you deem fit.
 
 ```json
 {
@@ -467,22 +453,18 @@ The content of each json should look like the format below. You can modify it as
 
 Create metadata similar to the one above for file 0, file 1, and file 2.
 
-Upload the metadata folder on pinata. the CID of the metadata folder on pinata will form the baseURI of our NFTs.
+Upload the metadata folder on Pinata. The CID of the metadata folder on Pinata will form the baseURI of our NFTs.
 
-Replace the baseURI in MyNFT.sol with your baseURI.
+Replace the baseURI in `MyNFT.sol` with your baseURI.
 
 ## Compile NFT Smart Contract
 
-One of the functionalities of hardhat is that we can compile our code right in our development environment. Follow the instruction below to compile your code:
+One of the functionalities of Hardhat is that we can compile our code right in our development environment. Follow the instruction below to compile your code:
 
-* Open your terminal
-    
-* Navigate to the root directory of our project.
-    
-* Run `npm install @openzeppelin/contracts`. This will install dependencies necessary for the OpenZeppelin contract we imported to run.
-    
-* After the complete installation of @openzeppelin, run `npx hardhat compile`. This will compile our smart contract.
-    
+* Open your terminal.
+* Navigate to the root directory of our project.   
+* Run `npm install @openzeppelin/contracts`. This will install dependencies necessary for the OpenZeppelin contract we imported to run.  
+* After the complete installation of @openzeppelin, run `npx hardhat compile`. This will compile our smart contract.  
 * You will see a response similar to the image below.
     
 
@@ -493,12 +475,9 @@ One of the functionalities of hardhat is that we can compile our code right in o
 Let's write a test to confirm that our smart contract is working as expected. Follow the instruction below to create a file for our test:
 
 * Navigate to the test folder in the root directory.
-    
-* Delete test.js file.
-    
-* Create a new file under test folder. Name the file nft-test.js.
-    
-* Copy and paste the code below into the nft-test.js file.
+* Delete `test.js` file.
+* Create a new file under `test` folder. Name the file `nft-test.js`.
+* Copy and paste the code below into the `nft-test.js` file.
     
 
 ```javascript
@@ -564,9 +543,9 @@ describe("MyNFT", function () {
   })
 ```
 
-In the code above we require `chai`, which is used for testing, and hardhat. We set the timeout to 50s because transactions may take a longer time on testnet.
+In the code above we require `chai`, which is used for testing, and hardhat. We set the timeout to 50 seconds because transactions may take a longer time on testnet.
 
-The `this.beforeEach` deploys our contract before executing each test. we then obtain the account that deploys the contract, and we set this account as the owner variable.
+The `this.beforeEach()` deploys our contract before executing each test. We then obtain the account that deploys the contract, and we set this account as the owner variable.
 
 ```javascript
 it("Should set the right owner", async function () {
@@ -588,9 +567,9 @@ it("Should mint one NFT", async function() {
   })
 ```
 
-The code above checks if acc1 has zero NFT. It then mints one NFT to acc1. it waits for the transaction to complete, and it then checks if one NFT was minted to acc1.
-
-Now run the command below in the rootof your project directory to test the contract.
+The code above checks if `acc1` has zero NFT. It then mints one NFT to acc1. It waits for the transaction to complete, and it then checks if one NFT was minted to acc1.
+ 
+Now run the command below in the root of your project directory to test the contract.
 
 ```bash
 npx hardhat test
@@ -602,15 +581,12 @@ You will receive a response like the image below:
 
 ## Deploy NFT Smart Contract
 
-We will write a script to deploy our smart contract on Celo alfajores network using hardhat. Follow the steps below to create a deployment file:
+We will write a script to deploy our smart contract on Celo Alfajores network using Hardhat. Follow the steps below to create a deployment file:
 
 1. Navigate to the script folder under the root directory.
-    
-2. Open deploy.js.
-    
-3. Delete the code in deploy.js
-    
-4. Copy and paste the code below into deploy.js.
+2. Open `deploy.js`.   
+3. Delete the code in `deploy.js`   
+4. Copy and paste the code below into `deploy.js`.
     
 
 ```javascript
@@ -671,7 +647,7 @@ async function main() {
 }
 ```
 
-The main function creates an instance of contractFactory. The contractFactory produces an instance of our contract(MyNFT). This is now deployed. We then log the contract address into the console. We then passed our deployed contract into storeContractData.
+The main function creates an instance of `contractFactory`. The `contractFactory` produces an instance of our contract (`MyNFT`). This is now deployed. We then log the contract address into the console. We then passed our deployed contract into `storeContractData()`.
 
 ```javascript
 function storeContractData(contract) {
@@ -688,7 +664,7 @@ function storeContractData(contract) {
   );
 ```
 
-The storeContractData creates a json file that store the address of the deployed contract.
+The `storeContractData()` creates a JSON file that store the address of the deployed contract.
 
 ```javascript
 main()
@@ -701,7 +677,7 @@ main()
 
 We call the main function and if an error occurs, we log the error into the console.
 
-Save deploy.js and run the command below
+Save `deploy.js` and run the command below
 
 ```bash
 npx hardhat run --network alfajores scripts/deploy.js
@@ -713,15 +689,12 @@ You will receive a response similar to the image below. Save the contract addres
 
 ## Minting NFT
 
-In this section, we will mint an NFT by running a javascript file. Follow the steps below to create a javascript file that will contain the code for minting NFT.
+In this section, we will mint an NFT by running a javascript file. Follow the steps below to create a Javascript file that will contain the code for minting NFT.
 
-1. Navigate to the script folder.
-    
-2. Create a file. Name it mint-nft.js.
-    
-3. Copy the code below into mint-nft.js.
-    
-4. Save mint-nft.js file
+1. Navigate to the `script` folder.
+2. Create a file. Name it `mint-nft.js`.
+3. Copy the code below into `mint-nft.js`.
+4. Save `mint-nft.js` file
     
 
 ```javascript
@@ -770,25 +743,16 @@ const contract = require("../artifacts/contracts/MyNFT.sol/MyNFT.json");
 require("dotenv").config({ path: ".env" });
 ```
 
-* The code above imports ethers from hardhat. Rthers allow us to communicate with our smart contract in a javascript code.
-    
+* The code above imports ethers from Hardhat. Ethers allow us to communicate with our smart contract in a Javascript code.
 * We assign a JSON file that was generated when we deployed our code.
-    
-* We imported the .env file that we imported earlier. The .env file contains our Celo account private key. To get your private key, follow the steps below.
-    
-    * Open Metamask.
-        
-    * Make sure your network is set to celo alfajores network.
-        
-    * click on the three-dot icon on the right side of the user interface.
-        
-    * select account details.
-        
-    * Enter your password.
-        
-    * Copy the private key shown to you.
-        
-    * Add the code below to the .env file.
+* We imported the `.env` file that we imported earlier. The .env file contains our Celo account private key. To get your private key, follow the steps below.
+    1. Open Metamask.
+    2. Make sure your network is set to celo alfajores network.
+    3. Click on the three-dot icon on the right side of the user interface.
+    4. select account details. 
+    5. Enter your password.    
+    6. Copy the private key shown to you.
+    7. Add the code below to the `.env` file.
         
 
 ```plaintext
@@ -812,16 +776,12 @@ async function main() {
    );
 ```
 
-In the code above the function main is an asynchronous function.
+In the code above the function `main()` is an asynchronous function.
 
-* The variable `contractAddress` contains the deployed smart contract address. Replace the contract address generated when you deployed your contract.
-    
+* The variable `contractAddress` contains the deployed smart contract address. Replace the contract address generated when you deployed your contract.  
 * The variable provider contains a node provider. We are using Celo Forno. Celo Forno allows us to communicate with the Celo blockchain without creating our node.
-    
-* The `signer` variable contains information about your wallet. we passed in our private key and the provider.
-    
-* The `abi` variable converts the contract variable into an ABI. an ABI allows us to interact with the function of our smart contract in a javascript file.
-    
+* The `signer` variable contains information about your wallet. We passed in our private key and the provider. 
+* The `abi` variable converts the contract variable into an ABI. An ABI allows us to interact with the function of our smart contract in a Javascript file.
 * The `nft` variable contains an instance of our nft smart contract.
     
 
@@ -834,7 +794,7 @@ In the code above the function main is an asynchronous function.
     }
 ```
 
-In the code above, we declared a for loop that mints two nfts into the signer's address by calling the `safeMint` function of our smart contract.
+In the code above, we declared a for loop that mints two nfts into the signer's address by calling the `safeMint()` function of our smart contract.
 
 ```javascript
 main()
@@ -847,7 +807,7 @@ main()
 
 We called `main` function, then log possible errors encountered into the console.
 
-Run the command below to mint your nft.
+Run the command below to mint your NFT.
 
 ```bash
 node scripts/mint-nft.js
@@ -859,16 +819,12 @@ After the script finishes its execution. You will get a response similar to the 
 
 ## Import Smart Contract.
 
-Let's Import our contract into our wallet to see the nfts we received. Follow the steps below to import your smart contract.
+Let's Import our contract into our wallet to see the NFTs we received. Follow the steps below to import your smart contract.
 
 1. Open Metamask wallet.
-    
-2. Click on add token under asset.
-    
-3. Copy and paste your contract address into the field provided
-    
-4. Enter zero in the decimal token field.
-    
+2. Click on add token under asset. 
+3. Copy and paste your contract address into the field provided.
+4. Enter zero in the decimal token field. 
 5. Click in import.
     
 
@@ -878,7 +834,6 @@ Now, you should see your token in your wallet with at least two NFTS similar to 
 
 ## Conclusion
 
-We learned how to create, test, mint, and deploy an NFT project on the Celo blockchain network using hardhat.
-Here is a link to a [github repo](https://github.com/codeInn001/celo-hardhat) containing all the codes.
+We learned how to create, test, mint, and deploy an NFT project on the Celo blockchain network using Hardhat.
 
 Happy coding!
