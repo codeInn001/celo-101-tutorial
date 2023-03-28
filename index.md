@@ -410,7 +410,7 @@ Other things you can do is
 * Add more functions such as a delete function.
     
 
-Here is a link to the smart contract code.
+Here is a link to the [smart contract code](https://github.com/codeInn001/celo-101-tutorial/blob/main/CrowdFunding.sol).
 
 
   
